@@ -1,7 +1,7 @@
-# TechShop - Database and Java Application
+# Tech Shop - Database and Java Application
 
 ## Overview
-TechShop is a fictional company that sells electronic gadgets. This project is part of a comprehensive assignment designed to develop a database for TechShop, along with a Java-based application to manage customers, products, orders, inventory, and order details.
+Tech Shop is a fictional company that sells electronic gadgets. This project is part of a comprehensive assignment designed to develop a database for TechShop, along with a Java-based application to manage customers, products, orders, inventory, and order details.
 
 This project is structured into several tasks, each focusing on different aspects such as SQL schema design, data queries, and object-oriented programming principles. The database interaction will be performed using SQL, and the business logic will be implemented in Java.
 
