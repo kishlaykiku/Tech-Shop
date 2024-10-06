@@ -11,5 +11,5 @@ This project is structured into several tasks, each focusing on different aspect
 
 - **Task 1 (Database Design)**: Created a database schema for TechShop with tables for customers, products, orders, order details, and inventory and also inserted values in the tables.
 - **Task 2 (SQL Queries)**: Tested SQL queries to retrieve and manipulate data.
-- **Task 3 (SQL Queries)**: Performed queries using aggregate functions, joins, and `GROUP BY`.
+- **Task 3 (SQL Queries)**: Performed queries using aggregate functions, joins, and GROUP BY.
 - **Task 4 (SQL Queries)**: Use subqueries and implement object-oriented programming concepts in Java.
