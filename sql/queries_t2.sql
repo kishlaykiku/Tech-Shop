@@ -35,3 +35,40 @@ SET Email = 'kiku.pandit@example.com', Phone = '9567012384', Address = '690 More
 WHERE CustomerID = 11;
 
 /* 8- Write an SQL query to recalculate and update the total cost of each order in the "Orders" table based on the prices and quantities in the "OrderDetails" table. */
+UPDATE Orders
+JOIN (
+    SELECT OrderID, SUM(OrderDetails.Quantity * Products.Price) As TotalCost
+    FROM OrderDetails
+    JOIN Products ON OrderDetails.ProductID = Products.ProductID
+    GROUP BY OrderID
+) AS OrderTotals ON Orders.OrderID = OrderTotals.OrderID
+SET Orders.TotalAmount = OrderTotals.TotalCost;
+
+/* 9- Write an SQL query to delete all orders and their associated order details for a specific customer from the "Orders" and "OrderDetails" tables. Allow users to input the customer ID as a parameter. */
+--We don't need this query because ON DELETE CASCADE is enabled
+DELETE From OrderDetails
+WHERE OrderID IN (SELECT OrderID FROM Orders
+                    WHERE CustomerID = 1);
+
+DELETE FROM Orders
+WHERE CustomerID = 1;
+
+/* 10- Write an SQL query to insert a new electronic gadget product into the "Products" table, including product name, category, price, and any other relevant details. */
+INSERT INTO Products (ProductName, Description, Price)
+VALUES
+('Camera', '20MP, 4K Video Recording', 300.00);
+
+/* 11- Write an SQL query to update the status of a specific order in the "Orders" table (e.g., from "Pending" to "Shipped"). Allow users to input the order ID and the new status. */
+-- status column hoga tabhi update hoga na (column add kr du kya)
+
+/* 12- Write an SQL query to calculate and update the number of orders placed by each customer in the "Customers" table based on the data in the "Orders" table. */
+-- Add OrderCount column first
+ALTER TABLE Customers ADD COLUMN OrderCount INT DEFAULT 0;
+
+UPDATE Customers
+JOIN (
+    SELECT CustomerID, COUNT(*) AS OrderCount
+    FROM Orders
+    GROUP BY CustomerID
+) AS OrderSummary ON Customers.CustomerID = OrderSummary.CustomerID
+SET Customers.OrderCount = OrderSummary.OrderCount;
